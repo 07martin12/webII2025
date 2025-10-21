@@ -1,0 +1,25 @@
+<nav class="artist-list-nav">
+    <ul class="artist-list">
+        <?php if (!empty($songs) && is_array($songs)): ?>
+            <?php foreach ($songs as $song): ?>
+                <li class="artist-item">
+                    <a href="<?= Router::getBaseUrl(); ?>home/songDetail/<?= $song->id_song; ?>" class="artist-link">
+                        <?= htmlspecialchars($song->title); ?> – <?= htmlspecialchars($song->artist_name); ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <li class="artist-item">
+                <p class="error-message">No se encontraron canciones disponibles.</p>
+            </li>
+        <?php endif; ?>
+    </ul>
+
+    <?php if ($limit < $totalSongs): ?>
+        <div class="see-more">
+            <a href="<?= Router::getBaseUrl(); ?>home/listSongs/<?= min($limit + 5, $totalSongs); ?>" class="btn btn-login">
+                Ver más
+            </a>
+        </div>
+    <?php endif; ?>
+</nav>

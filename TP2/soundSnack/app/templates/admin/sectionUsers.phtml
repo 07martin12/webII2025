@@ -1,0 +1,130 @@
+<section class="admin-section">
+    <h2 id="adminUsers" class="admin-header">Administración de usuarios</h2>
+
+    <!-- Agregar Usuario -->
+    <div class="admin-form-block">
+        <div class="login-header">
+            <h3>Agregar Usuario</h3>
+        </div>
+        <p>Complete los campos para registrar un nuevo usuario en la base de datos.</p>
+        <form action="<?= Router::getBaseUrl(); ?>admin/addUser" method="POST" enctype="multipart/form-data" class="login-form">
+            <div class="form-group">
+                <label for="add_name">Nombre</label>
+                <input type="text" id="add_name" name="name" placeholder="Ingrese el nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="add_email">Email</label>
+                <input type="email" id="add_email" name="email" placeholder="Ingrese el email" required>
+            </div>
+            <div class="form-group">
+                <label for="add_password">Contraseña</label>
+                <input type="password" id="add_password" name="password" placeholder="Ingrese la contraseña" required>
+            </div>
+            <div class="form-group">
+                <label for="add_profile_photo">Foto de perfil</label>
+                <input type="file" id="add_profile_photo" name="profile_photo">
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-submit">Agregar Usuario</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Buscar Usuario -->
+    <div class="admin-form-block">
+        <div class="login-header">
+            <h3>Buscar Usuario</h3>
+        </div>
+        <p>Puede buscar usuarios por ID, nombre o mostrar una lista limitada de usuarios.</p>
+
+        <!-- Buscar por ID -->
+        <form action="<?= Router::getBaseUrl(); ?>admin/viewUserById" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="search_id">ID del usuario</label>
+                <input type="number" id="search_id" name="id_user" placeholder="Ingrese el ID del usuario">
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-submit">Buscar por ID</button>
+            </div>
+        </form>
+
+        <!-- Buscar por Nombre -->
+        <form action="<?= Router::getBaseUrl(); ?>admin/viewUserByName" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="search_name">Nombre del usuario</label>
+                <input type="text" id="search_name" name="name" placeholder="Ingrese el nombre del usuario">
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-submit">Buscar por Nombre</button>
+            </div>
+        </form>
+
+        <!-- Listar usuarios limitados -->
+        <form action="<?= Router::getBaseUrl(); ?>admin/viewUsers" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="search_limit">Número de usuarios a mostrar</label>
+                <select id="search_limit" name="limit" required>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-submit">Obtener Usuarios</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Editar Usuario -->
+    <div class="admin-form-block">
+        <div class="login-header">
+            <h3>Editar Usuario</h3>
+        </div>
+        <p>Seleccione el usuario a editar y complete los campos que desea modificar.</p>
+        <form action="<?= Router::getBaseUrl(); ?>admin/editUser" method="POST" enctype="multipart/form-data" class="login-form">
+            <div class="form-group">
+                <label for="edit_id_user">Usuario</label>
+                <select id="edit_id_user" name="id_user" required>
+                    <option selected disabled>Seleccione un usuario</option>
+                    <?php foreach ($users as $user) : ?>
+                        <option value="<?= $user->id_user ?>"><?= htmlspecialchars($user->name) ?> (<?= htmlspecialchars($user->email) ?>)</option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="edit_name">Nombre</label>
+                <input type="text" id="edit_name" name="name" placeholder="Nuevo nombre">
+            </div>
+            <div class="form-group">
+                <label for="edit_email">Email</label>
+                <input type="email" id="edit_email" name="email" placeholder="Nuevo email">
+            </div>
+            <div class="form-group">
+                <label for="edit_password">Contraseña</label>
+                <input type="password" id="edit_password" name="password" placeholder="Nueva contraseña">
+            </div>
+            <div class="form-group">
+                <label for="edit_profile_photo">Foto de perfil</label>
+                <input type="file" id="edit_profile_photo" name="profile_photo">
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-submit">Editar Usuario</button>
+            </div>
+        </form>
+    </div>
+    <!-- Borrar Usuario -->
+    <div class="admin-form-block">
+        <div class="login-header">
+            <h3>Borrar Usuario</h3>
+        </div>
+        <form action="<?= Router::getBaseUrl(); ?>admin/removeUser" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="delete_id_user">ID del Usuario</label>
+                <input type="number" id="delete_id_user" name="id_user" placeholder="Ingrese el ID del usuario" required>
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-submit">Borrar Usuario</button>
+            </div>
+        </form>
+    </div>
+</section>

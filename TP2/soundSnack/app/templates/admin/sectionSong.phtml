@@ -1,0 +1,117 @@
+<section class="admin-section">
+    <h2 id="adminSongs" class="admin-header">Administración de canciones</h2>
+
+    <!-- Agregar Canción -->
+    <div class="admin-form-block">
+        <div class="login-header">
+            <h3>Agregar Canción</h3>
+        </div>
+        <p>Complete los campos para registrar una nueva canción en la base de datos.</p>
+        <form action="<?= Router::getBaseUrl(); ?>admin/addSong" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="add_id_artist">Artista</label>
+                <select id="add_id_artist" name="id_artist" required>
+                    <option selected disabled>Seleccione el artista</option>
+                    <?php foreach ($artists as $artist) : ?>
+                        <option value="<?= $artist->id_artist ?>"><?= htmlspecialchars($artist->name) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="add_title">Título</label>
+                <input type="text" id="add_title" name="title" placeholder="Ingrese el título" required>
+            </div>
+            <div class="form-group">
+                <label for="add_album">Álbum</label>
+                <input type="text" id="add_album" name="album" placeholder="Ingrese el álbum" required>
+            </div>
+            <div class="form-group">
+                <label for="add_duration">Duración</label>
+                <input type="number" id="add_duration" name="duration" placeholder="Duración en segundos" required>
+            </div>
+            <div class="form-group">
+                <label for="add_genre">Género</label>
+                <input type="text" id="add_genre" name="genre" placeholder="Ingrese el género" required>
+            </div>
+            <div class="form-group">
+                <label for="add_video">Link al Video</label>
+                <input type="text" id="add_video" name="video" placeholder="Ingrese el link de YouTube">
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-submit">Agregar Canción</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Editar Canción -->
+    <div class="admin-form-block">
+        <div class="login-header">
+            <h3>Editar Canción</h3>
+        </div>
+        <p>Ingrese el título de la canción a editar y complete los campos que desea modificar.</p>
+        <form action="<?= Router::getBaseUrl(); ?>admin/editSong" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="current_title">Título actual de la canción</label>
+                <input type="text" id="current_title" name="current_title" placeholder="Título actual" required>
+            </div>
+            <div class="form-group">
+                <label for="edit_id_artist">Artista</label>
+                <select id="edit_id_artist" name="id_artist" required>
+                    <option selected disabled>Seleccione el artista</option>
+                    <?php foreach ($artists as $artist) : ?>
+                        <option value="<?= $artist->id_artist ?>"><?= htmlspecialchars($artist->name) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="edit_title">Nuevo título</label>
+                <input type="text" id="edit_title" name="title" placeholder="Nuevo título">
+            </div>
+            <div class="form-group">
+                <label for="edit_album">Nuevo álbum</label>
+                <input type="text" id="edit_album" name="album" placeholder="Nuevo álbum">
+            </div>
+            <div class="form-group">
+                <label for="edit_duration">Nueva duración</label>
+                <input type="number" id="edit_duration" name="duration" placeholder="Duración en segundos">
+            </div>
+            <div class="form-group">
+                <label for="edit_genre">Nuevo género</label>
+                <input type="text" id="edit_genre" name="genre" placeholder="Nuevo género">
+            </div>
+            <div class="form-group">
+                <label for="edit_video">Nuevo link al video</label>
+                <input type="text" id="edit_video" name="video" placeholder="Nuevo link de YouTube">
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-submit">Editar Canción</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Borrar Canción -->
+    <div class="admin-form-block">
+        <div class="login-header">
+            <h3>Borrar Canción</h3>
+        </div>
+        <p>Seleccione el artista y escriba el nombre de la canción que desea eliminar.</p>
+        <form action="<?= Router::getBaseUrl(); ?>admin/removeSong" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="delete_id_artist">Artista</label>
+                <select id="delete_id_artist" name="id_artist" required>
+                    <option selected disabled>Seleccione el artista</option>
+                    <?php foreach ($artists as $artist) : ?>
+                        <option value="<?= $artist->id_artist ?>"><?= htmlspecialchars($artist->name) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="delete_title">Título de la Canción</label>
+                <input type="text" id="delete_title" name="title" placeholder="Ingrese el nombre de la canción" required>
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-submit">Borrar Canción</button>
+            </div>
+        </form>
+    </div>
+</section>

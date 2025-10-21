@@ -1,0 +1,75 @@
+.artist-table {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: #1b1b1b;
+  color: #f1f1f1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.artist-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #333;
+  vertical-align: top;
+}
+
+.artist-table tr:first-child td {
+  font-weight: bold;
+  background: #111;
+  color: #ff005c;
+}
+
+.artist-table img.artist-cover {
+  max-width: 150px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.artist-separator {
+  border: none;
+  height: 1px;
+  background-color: #333;
+  margin: 30px auto;
+  max-width: 800px;
+}
+
+.artist-table td:nth-child(2):nth-of-type(3) {
+  text-align: justify;
+}
+
+.admin-section textarea {
+  min-height: 120px;
+  padding: 10px 15px;
+  border-radius: 50px;
+  border: 2px solid #444;
+  background-color: #1b1b1b;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.admin-section textarea:focus {
+  border-color: #ff005c;
+  box-shadow: 0 0 10px rgba(255, 0, 92, 0.5);
+}
+
+.admin-section select {
+  height: 45px;
+  padding: 0 15px;
+  border-radius: 50px;
+  border: 2px solid #444;
+  background-color: #1b1b1b;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.admin-section select:focus {
+  border-color: #ff005c;
+  box-shadow: 0 0 10px rgba(255, 0, 92, 0.5);
+}

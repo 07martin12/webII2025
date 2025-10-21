@@ -1,0 +1,40 @@
+<?php if (!empty($artists)): ?>
+    <?php foreach ($artists as $artist): ?>
+        <table class="artist-table">
+            <tr>
+                <td>Nombre</td>
+                <td><?= htmlspecialchars($artist->name) ?></td>
+            </tr>
+            <tr>
+                <td>Biografía</td>
+                <td><?= htmlspecialchars($artist->biography) ?></td>
+            </tr>
+            <tr>
+                <td>Portada</td>
+                <td>
+                    <img
+                        src="<?= !empty($artist->cover)
+                                    ? Router::getBaseUrl() . htmlspecialchars($artist->cover)
+                                    : Router::getBaseUrl() . 'assets/img/covers/artists/default.jpg' ?>"
+                        alt="Portada de <?= htmlspecialchars($artist->name) ?>"
+                        class="artist-cover">
+                </td>
+            </tr>
+            <tr>
+                <td>Fecha de nacimiento</td>
+                <td><?= htmlspecialchars($artist->date_of_birth) ?></td>
+            </tr>
+            <tr>
+                <td>Fecha de fallecimiento</td>
+                <td><?= htmlspecialchars($artist->date_of_death ?? '-') ?></td>
+            </tr>
+            <tr>
+                <td>Lugar de nacimiento</td>
+                <td><?= htmlspecialchars($artist->place_of_birth) ?></td>
+            </tr>
+        </table>
+        <hr class="artist-separator">
+    <?php endforeach; ?>
+<?php else: ?>
+    <p class="error-message">No se encontró información del artista.</p>
+<?php endif; ?>

@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #0f0f0f;
+  color: #f1f1f1;
+}
+
+header {
+  background: linear-gradient(90deg, #111, #1b1b1b);
+  border-bottom: 2px solid #ff005c;
+  padding: 15px 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-title h1 a {
+  text-decoration: none;
+  color: #ff005c;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.site-title h1 a:hover {
+  color: #fff;
+  text-shadow: 0 4px 10px rgba(255, 0, 92, 0.6);
+  transform: translateY(-2px);
+}
+
+.site-title p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.user-details {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.username {
+  font-weight: 600;
+  color: #fff;
+}
+
+.email {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.profile-pic {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ff005c;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.auth-buttons > div {
+  display: flex;
+  align-items: center;
+}
+
+.logout-button {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0 20px;
+  height: 40px;
+  min-width: 100px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.btn-login {
+  background-color: #ff005c;
+  color: #fff;
+  border: none;
+}
+
+.btn-login:hover {
+  background-color: #ff3380;
+}
+
+.btn-register {
+  background-color: transparent;
+  border: 2px solid #ff005c;
+  color: #ff005c;
+}
+
+.btn-register:hover {
+  background-color: #ff005c;
+  color: #fff;
+}
+
+.btn-logout {
+  background-color: #444;
+  color: #fff;
+  border: 2px solid #ff005c;
+}
+
+.btn-logout:hover {
+  background-color: #ff005c;
+}
+
+footer {
+  background-color: #111;
+  border-top: 2px solid #ff005c;
+  padding: 20px 30px;
+  text-align: center;
+  color: #ccc;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.5);
+}
+
+footer p,
+footer address {
+  margin: 5px 0;
+  color: #ccc;
+  transition: all 0.3s ease;
+}
+
+footer p:hover,
+footer address:hover {
+  color: #ff005c;
+  text-shadow: 0 2px 6px rgba(255, 0, 92, 0.6);
+}
+
+/* === NAV BAR === */
+.main-nav {
+  background: linear-gradient(90deg, #111, #1a1a1a);
+  border-bottom: 2px solid #ff005c;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  padding: 15px 30px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #f1f1f1;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  padding: 10px 5px;
+  display: inline-block;
+}
+
+.nav-link:hover {
+  color: #ff005c;
+  text-shadow: 0 2px 8px rgba(255, 0, 92, 0.6);
+  transform: translateY(-2px);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ff005c;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Contenedor del nav de artistas */
+.artist-list-nav {
+  background-color: #111;
+  border: 2px solid #ff005c;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Lista de artistas */
+.artist-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.artist-item {
+  transition: all 0.3s ease;
+}
+
+.artist-link {
+  text-decoration: none;
+  color: #ff005c;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.artist-link:hover {
+  background-color: #ff005c;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 0, 92, 0.4);
+}
+
+.artist-item .error-message {
+  color: #f1f1f1;
+  font-size: 1rem;
+  text-align: center;
+}

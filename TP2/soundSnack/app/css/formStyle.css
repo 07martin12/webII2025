@@ -1,0 +1,141 @@
+.login-section {
+  background: linear-gradient(90deg, #111, #1b1b1b);
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  color: #f1f1f1;
+}
+
+.login-header h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #ff005c;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.login-header h3:hover {
+  color: #fff;
+  text-shadow: 0 4px 10px rgba(255, 0, 92, 0.6);
+  transform: translateY(-2px);
+}
+
+.login-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.login-form label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #ccc;
+}
+
+.login-form input {
+  padding: 10px 15px;
+  border-radius: 50px;
+  border: 2px solid #444;
+  background-color: #1b1b1b;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.login-form input:focus {
+  border-color: #ff005c;
+  box-shadow: 0 0 10px rgba(255, 0, 92, 0.5);
+}
+
+.submit-group {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 30px;
+  height: 45px;
+  min-width: 120px;
+  border-radius: 50px;
+  border: none;
+  background-color: #ff005c;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #ff3380;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 0, 92, 0.5);
+}
+
+.error-message {
+  color: #ff2e2e;
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px solid #ff2e2e;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.success-message {
+  color: #00ff6a;
+  background-color: rgba(0, 255, 106, 0.1);
+  border: 1px solid #00ff6a;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.admin-section > .admin-header {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.admin-form-block {
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #444;
+}
+
+.admin-form-block:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.admin-form-block p {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.admin-section {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.admin-form-block {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}

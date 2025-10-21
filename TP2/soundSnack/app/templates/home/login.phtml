@@ -1,0 +1,21 @@
+<section class="login-section">
+    <div class="login-header">
+        <h3>Login</h3>
+    </div>
+
+    <form id="loginForm" action="<?= Router::getBaseUrl(); ?>home/logIn" method="post" class="login-form">
+        <div class="form-group">
+            <label for="userName">Username</label>
+            <input id="userName" name="userName" type="text" placeholder="Enter your username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="userPassword">Password</label>
+            <input id="userPassword" name="userPassword" type="password" placeholder="Enter your password" required>
+        </div>
+
+        <div class="form-group submit-group">
+            <button type="submit" class="btn-submit">Send</button>
+        </div>
+    </form>
+</section>

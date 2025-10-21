@@ -1,0 +1,192 @@
+<section class="admin-section">
+    <h2 id="adminArtists" class="admin-header">Administración de artistas</h2>
+
+    <div class="admin-form-block">
+        <div class="login-header">
+            <h3>Agregar Artista</h3>
+        </div>
+        <p>Complete los campos para registrar un nuevo artista en la base de datos.</p>
+        <form action="<?= Router::getBaseUrl(); ?>admin/addArtist" method="POST" enctype="multipart/form-data" class="login-form">
+            <div class="form-group">
+                <label for="add_name">Nombre</label>
+                <input type="text" id="add_name" name="name" placeholder="Ingrese el nombre del artista" required>
+            </div>
+            <div class="form-group">
+                <label for="add_biography">Biografía</label>
+                <textarea id="add_biography" name="biography" placeholder="Ingrese la biografía del artista" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="add_cover">Portada</label>
+                <input type="file" id="add_cover" name="cover">
+            </div>
+            <div class="form-group">
+                <label for="add_date_of_birth">Fecha de nacimiento</label>
+                <input type="date" id="add_date_of_birth" name="date_of_birth" max="<?= date('Y-m-d') ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="add_date_of_death">Fecha de fallecimiento</label>
+                <input type="date" id="add_date_of_death" name="date_of_death"
+                    min="<?= date('Y-m-d', strtotime('-120 years')) ?>"
+                    max="<?= date('Y-m-d') ?>">
+            </div>
+            <div class="form-group">
+                <label for="add_place_of_birth">Lugar de nacimiento</label>
+                <select id="add_place_of_birth" name="place_of_birth" required>
+                    <option value="">Seleccione un país</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Paraguay">Paraguay</option>
+                </select>
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-submit">Agregar Artista</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="admin-form-block">
+        <div class="login-header">
+            <h3>Buscar Artista</h3>
+        </div>
+        <p>Puede buscar artistas por ID, nombre o mostrar una lista limitada de artistas.</p>
+
+        <form action="<?= Router::getBaseUrl(); ?>admin/viewArtistById" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="search_id">ID del artista</label>
+                <input type="number" id="search_id" name="id_artist" placeholder="Ingrese el ID del artista">
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-submit">Buscar por ID</button>
+            </div>
+        </form>
+
+        <form action="<?= Router::getBaseUrl(); ?>admin/viewArtistByName" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="search_name">Nombre del artista</label>
+                <input type="text" id="search_name" name="name" placeholder="Ingrese el nombre del artista">
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-submit">Buscar por Nombre</button>
+            </div>
+        </form>
+
+        <form action="<?= Router::getBaseUrl(); ?>admin/viewArtists" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="search_limit">Número de artistas a mostrar</label>
+                <select id="search_limit" name="limit" required>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-submit">Obtener Artistas</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="admin-form-block">
+        <div class="login-header">
+            <h3>Actualizar Artista</h3>
+        </div>
+        <p>Ingrese el ID del artista y complete los campos que desea modificar.</p>
+        <form action="<?= Router::getBaseUrl(); ?>admin/updateArtist" method="POST" enctype="multipart/form-data" class="login-form">
+            <div class="form-group">
+                <label for="update_id">ID del Artista</label>
+                <input type="number" id="update_id" name="id_artist" placeholder="Ingrese el ID del artista" required>
+            </div>
+            <div class="form-group">
+                <label for="update_name">Nuevo nombre</label>
+                <input type="text" id="update_name" name="name" placeholder="Ingrese el nuevo nombre del artista">
+            </div>
+            <div class="form-group">
+                <label for="update_biography">Nueva biografía</label>
+                <textarea id="update_biography" name="biography" placeholder="Ingrese la nueva biografía"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="update_cover">Nueva portada</label>
+                <input type="file" id="update_cover" name="cover">
+            </div>
+            <div class="form-group">
+                <label for="update_date_of_birth">Nueva fecha de nacimiento</label>
+                <input type="date" id="update_date_of_birth" name="date_of_birth" max="<?= date('Y-m-d') ?>">
+            </div>
+            <div class="form-group">
+                <label for="update_date_of_death">Nueva fecha de fallecimiento</label>
+                <input type="date" id="update_date_of_death" name="date_of_death"
+                    min="<?= date('Y-m-d', strtotime('-120 years')) ?>"
+                    max="<?= date('Y-m-d') ?>">
+            </div>
+            <div class="form-group">
+                <label for="update_place_of_birth">Nuevo lugar de nacimiento</label>
+                <select id="update_place_of_birth" name="place_of_birth">
+                    <option value="">Seleccione un país</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Paraguay">Paraguay</option>
+                </select>
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-submit">Actualizar Artista</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="admin-form-block">
+        <div class="login-header">
+            <h3>Borrar Artista</h3>
+        </div>
+        <p>Ingrese el nombre del artista que desea eliminar de la base de datos.</p>
+        <form action="<?= Router::getBaseUrl(); ?>admin/deleteArtist" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="delete_name">Nombre del artista a borrar:</label>
+                <input type="text" id="delete_name" name="name" required>
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-submit">Borrar Artista</button>
+            </div>
+        </form>
+    </div>
+
+    <?php if (!empty($artists) && ($showArtists ?? false)): ?>
+        <h3 class="admin-header">Artistas Registrados</h3>
+        <?php foreach ($artists as $artist): ?>
+            <table class="artist-table">
+                <tr>
+                    <td>Nombre</td>
+                    <td><?= htmlspecialchars($artist->name) ?></td>
+                </tr>
+                <tr>
+                    <td>Biografía</td>
+                    <td><?= htmlspecialchars($artist->biography) ?></td>
+                </tr>
+                <tr>
+                    <td>Portada</td>
+                    <td>
+                        <img
+                            src="<?= !empty($artist->cover) ? htmlspecialchars($artist->cover) : '/webII2025/TP2/soundSnack/assets/img/covers/artists/default.jpg' ?>"
+                            alt="Portada de <?= htmlspecialchars($artist->name) ?>"
+                            class="artist-cover">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fecha de nacimiento</td>
+                    <td><?= htmlspecialchars($artist->date_of_birth) ?></td>
+                </tr>
+                <tr>
+                    <td>Fecha de fallecimiento</td>
+                    <td><?= htmlspecialchars($artist->date_of_death ?? '-') ?></td>
+                </tr>
+                <tr>
+                    <td>Lugar de nacimiento</td>
+                    <td><?= htmlspecialchars($artist->place_of_birth) ?></td>
+                </tr>
+            </table>
+            <hr class="artist-separator">
+        <?php endforeach; ?>
+    <?php endif; ?>
+</section>

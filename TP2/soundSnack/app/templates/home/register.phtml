@@ -1,0 +1,56 @@
+<section class="login-section">
+    <div class="login-header">
+        <h3>New User Registration</h3>
+    </div>
+
+    <form
+        id="userRegistration"
+        class="login-form"
+        action="<?= Router::getBaseUrl(); ?>home/registerUser"
+        method="post"
+        enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label for="userName">Username</label>
+            <input
+                name="userName"
+                id="userName"
+                type="text"
+                placeholder="Enter your username"
+                minlength="5"
+                required />
+        </div>
+
+        <div class="form-group">
+            <label for="userEmail">Email</label>
+            <input
+                name="userEmail"
+                id="userEmail"
+                type="email"
+                placeholder="Enter your email"
+                required />
+        </div>
+
+        <div class="form-group">
+            <label for="userPassword">Password</label>
+            <input
+                name="userPassword"
+                id="userPassword"
+                type="password"
+                placeholder="Enter your password"
+                minlength="5"
+                required />
+        </div>
+
+        <div class="form-group">
+            <label for="photoUser">Profile Photo (optional)</label>
+            <input
+                name="photoUser"
+                id="photoUser"
+                type="file"
+                accept="image/*" />
+        </div>
+
+        <button type="submit" class="btn-submit">Register</button>
+    </form>
+</section>

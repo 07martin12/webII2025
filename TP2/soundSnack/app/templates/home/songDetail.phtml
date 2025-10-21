@@ -1,0 +1,58 @@
+<?php if (!empty($songs)): ?>
+    <?php foreach ($songs as $song): ?>
+        <table class="artist-table">
+            <tr>
+                <td>Título</td>
+                <td><?= htmlspecialchars($song->title) ?></td>
+            </tr>
+            <tr>
+                <td>Álbum</td>
+                <td><?= htmlspecialchars($song->album) ?></td>
+            </tr>
+            <tr>
+                <td>Duración</td>
+                <td><?= htmlspecialchars($song->duration) ?></td>
+            </tr>
+            <tr>
+                <td>Género</td>
+                <td><?= htmlspecialchars($song->genre) ?></td>
+            </tr>
+            <tr>
+                <td>Video</td>
+                <td>
+                    <?php if (!empty($song->video)): ?>
+                        <?php
+                        $url = htmlspecialchars($song->video);
+                        // Detecta si es youtu.be o youtube.com para evitar errores de carga
+                        if (preg_match('/youtu\.be\/([a-zA-Z0-9_-]+)/', $url, $matches)) {
+                            $videoId = $matches[1];
+                        } elseif (preg_match('/watch\?v=([a-zA-Z0-9_-]+)/', $url, $matches)) {
+                            $videoId = $matches[1];
+                        } else {
+                            $videoId = null;
+                        }
+                        $embedUrl = $videoId ? "https://www.youtube.com/embed/$videoId" : '';
+                        ?>
+                        <?php if ($embedUrl): ?>
+                            <iframe
+                                width="420"
+                                height="236"
+                                src="<?= $embedUrl ?>"
+                                title="Video de <?= htmlspecialchars($song->title) ?>"
+                                frameborder="0"
+                                allowfullscreen>
+                            </iframe>
+                        <?php else: ?>
+                            <p>Video no disponible o URL inválida.</p>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <p>No hay video disponible.</p>
+                    <?php endif; ?>
+                </td>
+            </tr>
+        </table>
+        <hr class="artist-separator">
+    <?php endforeach; ?>
+<?php else: ?>
+    <p class="error-message">No se encontraron canciones para este artista.</p>
+<?php endif; ?>

@@ -1,0 +1,25 @@
+<nav class="artist-list-nav">
+    <ul class="artist-list">
+        <?php if (!empty($artists) && is_array($artists)): ?>
+            <?php foreach ($artists as $artist): ?>
+                <li class="artist-item">
+                    <a href="<?= Router::getBaseUrl(); ?>home/artistDetail/<?= $artist->id_artist; ?>" class="artist-link">
+                        <?= htmlspecialchars($artist->name); ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <li class="artist-item">
+                <p class="error-message">No se encontraron artistas disponibles.</p>
+            </li>
+        <?php endif; ?>
+    </ul>
+
+    <?php if ($limit < $totalArtists): ?>
+        <div class="see-more">
+            <a href="<?= Router::getBaseUrl(); ?>home/listArtists/<?= min($limit + 5, $totalArtists); ?>" class="btn btn-login">
+                Ver más
+            </a>
+        </div>
+    <?php endif; ?>
+</nav>

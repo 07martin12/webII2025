@@ -1,0 +1,26 @@
+<?php if (!empty($user)): ?>
+    <?php foreach ($user as $u): ?>
+        <table class="artist-table">
+            <tr>
+                <td>Nombre</td>
+                <td><?= htmlspecialchars($u->name) ?></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><?= htmlspecialchars($u->email) ?></td>
+            </tr>
+            <tr>
+                <td>Foto de perfil</td>
+                <td>
+                    <img
+                        src="<?= !empty($u->profile_photo) ? Router::getBaseUrl() . htmlspecialchars($u->profile_photo) : Router::getBaseUrl() . 'admin/assets/img/covers/users/defaultUser.jpg' ?>"
+                        alt="Foto de perfil de <?= htmlspecialchars($u->name) ?>"
+                        class="artist-cover">
+                </td>
+            </tr>
+        </table>
+        <hr class="artist-separator">
+    <?php endforeach; ?>
+<?php else: ?>
+    <p class="error-message">No se encontró información del usuario.</p>
+<?php endif; ?>
