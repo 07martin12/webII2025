@@ -13,7 +13,7 @@
 
 #### diagrama de relacion entre tablas:
 
-![diagrama de relacion](TP2/soundSnack/app/database/diagramaBD.png)
+![diagrama de relacion](./TP2/soundSnack/app/database/diagramaBD.png)
 
 **Por lo tanto para el desarrollo de esta propuesta se considera que:**
 
